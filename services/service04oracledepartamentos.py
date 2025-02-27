@@ -46,3 +46,21 @@ class ServiceOracleDepartamentos:
         self.connection.commit()
         cursor.close()
         return registros
+    
+    def getAllDepartamentos(self):
+        sql = "select * from DEPT"
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        #CREAMOS UNA LISTA PARA ALMACENAR CADA DEPARTAMENTO
+        datos = []
+        #RECORREMOS EL CURSOR DE DATOS
+        for row in cursor:
+            #DEBEMOS CREAR UN NUEVO OBJETO DEPARTAMENTO
+            dept = departamento.Departamento()
+            dept.numero = row[0]
+            dept.nombre = row[1]
+            dept.localidad = row[2]
+            datos.append(dept)
+        cursor.close()
+        return datos
+
