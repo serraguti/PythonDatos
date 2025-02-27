@@ -6,6 +6,7 @@ print("----SERVICIO ORACLE DEPARTAMENTOS")
 servicio = service.ServiceOracleDepartamentos()
 print("1.- Insertar departamento")
 print("2.- Buscar departamento")
+print("3.- Eliminar departamento")
 print("Seleccione una opción")
 opcion = int(input())
 if (opcion == 1):
@@ -25,4 +26,10 @@ elif (opcion == 2):
     #DECLARAMOS UNA VARIABLE PARA GUARDAR EL DEPARTAMENTO
     dept = servicio.buscarDepartamentoId(iddept)
     print(f"{dept.numero}, {dept.nombre}, {dept.localidad}")
+elif (opcion == 3):
+    print("Eliminar departamento")
+    print("Introduzca el ID a eliminar")
+    iddept = int(input())
+    registros = servicio.eliminarDepartamento(iddept)
+    print(f"Departamentos eliminados: {registros}")
 print("Fin de programa")
