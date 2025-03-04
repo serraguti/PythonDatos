@@ -1,4 +1,5 @@
-from services import service08oracleplantilla as service
+#from services import service08oracleplantilla as service
+from services import service08sqlserverplantilla as service
 from models.plantilla import Plantilla
 
 print("Ejemplo final BBDD")
